@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
-import { User } from '../user/user.entity';
+import { User } from '../../../users/entities/user/user.entity';
 
 @Entity()
 export class Expense {
@@ -9,7 +9,7 @@ export class Expense {
   @Column()
   name: string = '';
   
-  @Column()
+  @Column({ nullable: true })
   tag: string = '';
 
   @Column({ type: Date })
