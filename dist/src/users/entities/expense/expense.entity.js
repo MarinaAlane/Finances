@@ -9,37 +9,50 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
+exports.Expense = void 0;
 const typeorm_1 = require("typeorm");
-const expense_entity_1 = require("../expense/expense.entity");
-let User = class User {
+const user_entity_1 = require("../user/user.entity");
+let Expense = class Expense {
     constructor() {
         this.name = '';
-        this.email = '';
-        this.senha = '';
+        this.tag = '';
+        this.expire_date = '';
+        this.pay_date = '';
     }
 };
-exports.User = User;
+exports.Expense = Expense;
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], User.prototype, "id", void 0);
+], Expense.prototype, "id", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], User.prototype, "name", void 0);
+], Expense.prototype, "name", void 0);
 __decorate([
     (0, typeorm_1.Column)(),
     __metadata("design:type", String)
-], User.prototype, "email", void 0);
+], Expense.prototype, "tag", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ type: Date }),
     __metadata("design:type", String)
-], User.prototype, "senha", void 0);
+], Expense.prototype, "expire_date", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => expense_entity_1.Expense, (expense) => expense.user),
-    __metadata("design:type", Array)
-], User.prototype, "expenses", void 0);
-exports.User = User = __decorate([
+    (0, typeorm_1.Column)({ type: Date }),
+    __metadata("design:type", String)
+], Expense.prototype, "pay_date", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => user_entity_1.User, (user) => user.expenses),
+    __metadata("design:type", user_entity_1.User)
+], Expense.prototype, "user", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ type: 'decimal', precision: 10, scale: 2 }),
+    __metadata("design:type", Number)
+], Expense.prototype, "amount", void 0);
+__decorate([
+    (0, typeorm_1.Column)({ nullable: true }),
+    __metadata("design:type", String)
+], Expense.prototype, "imagePath", void 0);
+exports.Expense = Expense = __decorate([
     (0, typeorm_1.Entity)()
-], User);
+], Expense);
