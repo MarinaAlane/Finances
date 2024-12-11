@@ -7,16 +7,16 @@ export class Expense {
   id: number;
 
   @Column()
-  name: string = '';
+  name: string;
   
   @Column({ nullable: true })
-  tag: string = '';
+  tag: string;
 
   @Column({ type: Date })
-  expire_date: string = '';
+  expire_date: string;
 
   @Column({ type: Date})
-  pay_date: string = '';
+  pay_date: string;
 
  @ManyToOne(() => User, (user) => user.expenses)
   user: User;

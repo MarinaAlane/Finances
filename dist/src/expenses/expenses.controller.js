@@ -26,6 +26,7 @@ let ExpenseController = class ExpenseController {
 };
 exports.ExpenseController = ExpenseController;
 __decorate([
+    (0, common_1.Header)('Content-Type', 'application/json'),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),

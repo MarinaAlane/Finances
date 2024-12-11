@@ -13,12 +13,6 @@ exports.Expense = void 0;
 const typeorm_1 = require("typeorm");
 const user_entity_1 = require("../../../users/entities/user/user.entity");
 let Expense = class Expense {
-    constructor() {
-        this.name = '';
-        this.tag = '';
-        this.expire_date = '';
-        this.pay_date = '';
-    }
 };
 exports.Expense = Expense;
 __decorate([
